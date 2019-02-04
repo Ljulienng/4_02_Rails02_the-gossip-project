@@ -1,3 +1,9 @@
 <h1>Welcome <%= params[:first_name] %></h1>
+<p><% Gossip.all.each do |gossip|%>
+	<% author = User.find(gossip.user_id.to_i)%>
+	<li><%=link_to "Gossip Author: #{author.first_name} || Gossip Title: #{gossip.title}", %></br> </li>
+	<% end %>
+</p>
 <p>Viens découvrir nos potins.</p>
 
+Gossip Author: <%= author.first_name %>  ||  Gossip Title: <%= gossip.title %> 

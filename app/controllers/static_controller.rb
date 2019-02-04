@@ -16,14 +16,16 @@ class StaticController < ApplicationController
   end
 
   def sign_up_input
-    @current_user = User.create!(first_name: params[:first_name])
+    User.create!(first_name: params[:first_name])
+    redirect_to "/"
   end
 
   def log_in
   end
 
   def log_in_input
-    @current_user = User.where("first_name = ?", params[:first_name])
+    @user = User.where("first_name = ?", params[:first_name])
+    redirect_to "/welcome/#{params[:first_name]}"
   end
 
 end

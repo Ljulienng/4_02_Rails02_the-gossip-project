@@ -1,12 +1,4 @@
 class DynamicController < ApplicationController
-  
-  def welcome
+  def gossip
   end
-
-  def gossip_page
-  end
-
-  def user_page
-  end
-  
 end
