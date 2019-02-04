@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'static#homepage'
+  
   get '/sign_up', to: "static#sign_up"
   post '/sign_up', to: "static#sign_up_input"
 
