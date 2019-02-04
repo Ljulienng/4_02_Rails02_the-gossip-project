@@ -1,6 +1,20 @@
-<%= gossip_author = Gossip.find(params[:id]).author %>
-<h1>gossip_author.first_name</h1>
+<% gossip_author = Gossip.find(params[:id]).author %>
+<div class="card">
+  <div class="card-header">
+    <%=gossip_author.first_name%>
+  </div>
 
-<p> <%= @user.first_name %></p>
+  <div class="card-body">
+    <p class="card-text"> About <%=gossip_author.first_name%>:</p>
+    <p class="card-text"> <%=gossip_author.description%></p>
+    <p>______________________________________________________</p>
+    <p class="card-text"> <%=gossip_author.first_name%>'s Gossips :</p>
+    <ul>
+      <% gossip_author.written_gossips.each do |gossip| %>
+      <li><%= link_to "#{gossip.title}", gossip_path(gossip.id) %></li>
+      <% end %>
+    </ul>
+    <a href="/welcome/back" class="">Back to gossip list</a>
+  </div>
+</div>
 
-<p>Find me in app/views/dynamic/user_page.html.erb</p>
