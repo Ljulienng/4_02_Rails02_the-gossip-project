@@ -6,10 +6,11 @@
   </div>
 
   <div class="card-body">
-    Author: <%= link_to "#{current_gossip.author.first_name}", author_path(params[:id]) %> 
+    Author: <%= link_to "#{current_gossip.author.first_name}", author_path(params[:first_name],params[:id]) %> 
     <p class="card-text">Content: <%=current_gossip.content%></p>
-    <a href="/welcome/back" class="">Back to gossip list</a>
+    <p class="card-text"><%= link_to "Back to gossip list", welcome_path(params[:first_name]) %></p>
   </div>
 </div>
 
+<!-- <a href="/welcome/back" class="">Back to gossip list</a> -->
 

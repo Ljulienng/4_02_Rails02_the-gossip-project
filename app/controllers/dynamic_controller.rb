@@ -8,7 +8,7 @@ class DynamicController < ApplicationController
   def gossip_page
   end
 
-  def user_page
-    redirect_to "/" if StaticController.current_user == nil
+  def author_page
   end
+  
 end

@@ -11,10 +11,10 @@
     <p class="card-text"> <%=gossip_author.first_name%>'s Gossips :</p>
     <ul>
       <% gossip_author.written_gossips.each do |gossip| %>
-      <li><%= link_to "#{gossip.title}", gossip_path(gossip.id) %></li>
+      <li><%= link_to "#{gossip.title}", gossip_path(params[:first_name],gossip.id) %></li>
       <% end %>
     </ul>
-    <a href="/welcome/back" class="">Back to gossip list</a>
+    <p class="card-text"><%= link_to "Back to gossip list", welcome_path(params[:first_name]) %></p>    
   </div>
 </div>
 
