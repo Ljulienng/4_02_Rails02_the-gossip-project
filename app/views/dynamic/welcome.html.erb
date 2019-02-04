@@ -1,9 +1,9 @@
 <h1>Welcome <%= params[:first_name] %></h1>
-<p><% Gossip.all.each do |gossip|%>
-	<% author = User.find(gossip.user_id.to_i)%>
-	<li><%=link_to "Gossip Author: #{author.first_name} || Gossip Title: #{gossip.title}", %></br> </li>
+<p><% Gossip.all.each do |i|%>
+	<% author = User.find(i.user_id.to_i)%>
+	<li><%=link_to "Gossip Author: #{author.first_name} || Gossip Title: #{i.title}", gossip_path(i.id), :class => "potin_list" %></br> 
+	</li>
 	<% end %>
 </p>
 <p>Viens découvrir nos potins.</p>
 
-Gossip Author: <%= author.first_name %>  ||  Gossip Title: <%= gossip.title %> 

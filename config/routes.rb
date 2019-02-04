@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'dynamic/gossip'
   root 'static#homepage'
 
   
@@ -15,5 +14,6 @@ Rails.application.routes.draw do
   get '/welcome/:current_user_first_name/user_page', to: "dynamic#user_page"
   get '/contact', to: "static#contact"
   get "/team", to: "static#team"
+  get "/gossip_page/:id", to: "dynamic#gossip_page", as: "gossip"
 
 end
