@@ -1,9 +1,9 @@
+<% current_gossip = Gossip.find(params[:id]) %>
+
 <div class="card">
   <div class="card-header">
-    Gossip n°<%=params[:id]%>
+    Gossip n°<%=params[:id]%>: <%current_gossip.title%>
   </div>
-
-  <% current_gossip = Gossip.find(params[:id]) %>
 
   <div class="card-body">
     <%= link_to "#{current_gossip.author.first_name}", author_path(params[:id]) %> 
