@@ -1,24 +1,16 @@
-# README
+# DAY21: Gossip project on rails
+## Made by Julien and Dany :smiley:
+## How to use
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+After the git clone, run the commands in this order: `bundle install`, `rails db:migrate`, `rails db:seed`.
 
-Things you may want to cover:
+Once you've done this your can run the command `rails server`
 
-* Ruby version
+## Content
 
-* System dependencies
+In this repo you'll find the gossip project website made on the framework Rails.
 
-* Configuration
+## Here is the meme
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![meme](https://i.imgur.com/nhqdJwq.gif)
