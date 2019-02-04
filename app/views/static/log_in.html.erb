@@ -1,7 +1,8 @@
 <title>Log_in</title>
 <h1>Please enter your first name and your email to log in.</h1>
 <form action='' method='POST'>
-  First name : <input type='text' name='user_first_name' value="first_name" /><br/>
-  Email : <input type='text' name='user_email' value="email" /><br/>
+  First name : <input type='text' name='user_first_name' value= <% params[:first_name] %>><br/>
+  Last name : <input type='text' name='user_last_name' value= <% params[:last_name] %>><br/>
+  Email : <input type='text' name='user_email' value= <% params[:email] %>><br/>
   <input type='submit'/>
 </form>

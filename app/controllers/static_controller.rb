@@ -23,7 +23,7 @@ class StaticController < ApplicationController
   end
 
   def log_in_input
-    @current_user = User.where("first_name = ? AND email = ?", params[:first_name], params[:email]).first
+    @current_user = User.where("first_name = ? AND last_name = ? AND email = ?", params[:first_name], params[:last_name], params[:email]).first
   end
 
 end
