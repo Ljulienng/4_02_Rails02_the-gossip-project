@@ -16,14 +16,14 @@ class StaticController < ApplicationController
   end
 
   def sign_up_input
-    @current_user = User.create!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email])
+    @current_user = User.create!(first_name: params[:first_name])
   end
 
   def log_in
   end
 
   def log_in_input
-    @current_user = User.where("first_name = ? AND last_name = ? AND email = ?", params[:first_name], params[:last_name], params[:email]).first
+    @current_user = User.where("first_name = ?", params[:first_name])
   end
 
 end
