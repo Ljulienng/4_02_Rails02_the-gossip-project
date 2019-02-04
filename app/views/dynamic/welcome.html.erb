@@ -2,7 +2,6 @@
 <p>Viens découvrir nos potins.</p>
 
 <p><% Gossip.all.each do |gossip|%>
-<div>Gossip Author: <%= gossip.author.first_name %>  ||  Gossip Title: <%= gossip.title %>  || <%= link_to "View Gossip", welcome_path(@current_user.first_name,@gossip_id</div>
-  <div></div>
+<div>Gossip Author: <%= gossip.author.first_name %>  ||  Gossip Title: <%= gossip.title %>  || <%= link_to "View Gossip", welcome_path(@current_user_first_name,@gossip_id %></div>
 <% end %>
 </p>
