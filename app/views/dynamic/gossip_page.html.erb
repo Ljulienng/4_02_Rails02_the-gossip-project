@@ -8,7 +8,7 @@
   <div class="card-body">
     Author: <%= link_to "#{current_gossip.author.first_name}", author_path(params[:first_name],params[:id]) %> 
     <p class="card-text">Content: <%=current_gossip.content%></p>
-    <p class="card-text"><%= link_to "Back to gossip list", welcome_path(params[:first_name]) %></p>
+    <p class="card-text"><%= link_to "Back to gossip list", welcome_path(params[:first_name]), :class => "btn btn-primary btn-sm" %></p>
   </div>
 </div>
 

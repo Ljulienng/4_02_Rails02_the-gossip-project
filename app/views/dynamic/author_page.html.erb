@@ -14,7 +14,7 @@
       <li><%= link_to "#{gossip.title}", gossip_path(params[:first_name],gossip.id) %></li>
       <% end %>
     </ul>
-    <p class="card-text"><%= link_to "Back to gossip list", welcome_path(params[:first_name]) %></p>    
+    <p class="card-text"><%= link_to "Back to gossip list", welcome_path(params[:first_name]), :class => "btn btn-primary btn-sm" %></p>    
   </div>
 </div>
 
