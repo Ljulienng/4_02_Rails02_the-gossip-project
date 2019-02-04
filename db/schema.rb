@@ -44,10 +44,10 @@ ActiveRecord::Schema.define(version: 2019_02_04_143023) do
   create_table "gossips", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.bigint "user_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_gossips_on_user_id"
+    t.index ["author_id"], name: "index_gossips_on_author_id"
   end
 
   create_table "likes", force: :cascade do |t|
