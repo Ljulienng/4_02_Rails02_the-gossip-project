@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'static/log_in'
+  get 'static/sign_up'
   get '/welcome/:first_name', to: "dynamic#welcome"
   get '/gossip_list/:gossip', to: "dynamic#gossip_page"
   get '/welcome/:first_name/user_page', to: "dynamic#user_page"
