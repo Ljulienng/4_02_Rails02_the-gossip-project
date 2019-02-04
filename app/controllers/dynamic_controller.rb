@@ -9,5 +9,6 @@ class DynamicController < ApplicationController
   end
 
   def user_page
+    redirect_to "/" if StaticController.current_user == nil
   end
 end

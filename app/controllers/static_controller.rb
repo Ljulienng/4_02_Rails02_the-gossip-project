@@ -1,5 +1,5 @@
 class StaticController < ApplicationController
-  
+
   def homepage
   end
   
@@ -24,7 +24,7 @@ class StaticController < ApplicationController
   end
 
   def log_in_input
-    @user = User.where("first_name = ?", params[:first_name])
+    @user = User.where("first_name = ?", params[:first_name]).first
     redirect_to "/welcome/#{params[:first_name]}"
   end
 
