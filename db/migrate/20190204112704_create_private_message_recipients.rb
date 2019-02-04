@@ -5,6 +5,6 @@ class CreatePrivateMessageRecipients < ActiveRecord::Migration[5.2]
       t.belongs_to :recipient
       t.timestamps
     end
-    remove_column :private_messages, :recipient
+    remove_column :private_messages, :recipient_id
   end
 end
