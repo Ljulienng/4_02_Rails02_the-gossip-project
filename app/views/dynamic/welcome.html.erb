@@ -1,0 +1,8 @@
+<h1>Welcome <%= params[:first_name] %></h1>
+<p>Viens découvrir nos potins.</p>
+
+<p><% Gossip.all.each do |gossip|%>
+<div>Gossip Author: <%= gossip.author.first_name %>  ||  Gossip Title: <%= gossip.title %></div>
+  <div></div>
+<% end %>
+</p>

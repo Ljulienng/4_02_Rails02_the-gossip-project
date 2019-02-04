@@ -8,6 +8,17 @@
 
 require 'faker'
 
+City.destroy_all
+User.destroy_all
+Gossip.destroy_all
+Tag.destroy_all
+GossipTag.destroy_all
+PrivateMessage.destroy_all
+PrivateMessageRecipient.destroy_all
+Comment.destroy_all
+Undercomment.destroy_all
+Like.destroy_all
+
 10.times do |i|
   City.create!(name: Faker::GameOfThrones.city, zip_code: "1#{i}5#{i}8")
 end
@@ -17,7 +28,7 @@ end
 end
 
 20.times do
-  Gossip.create!(title: Faker::Pokemon.name, content: Faker::RickAndMorty.unique.quote, user: User.all.sample)
+  Gossip.create!(title: Faker::Pokemon.name, content: Faker::RickAndMorty.unique.quote, author: User.all.sample)
 end
 
 10.times do
