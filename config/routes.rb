@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   get '/log_in', to: "static#log_in"
   post '/log_in', to: "static#log_in_input"
 
-  get '/welcome/:first_name', to: "dynamic#welcome", as: "welcome"
-  get '/welcome/:current_user_first_name/user_page', to: "dynamic#user_page"
+  get '/welcome/:first_name', to: "dynamic#welcome"
+  get '/gossip_page/:id/author', to: "dynamic#author_page", as: "author"
+
   get '/contact', to: "static#contact"
   get "/team", to: "static#team"
   get "/gossip_page/:id", to: "dynamic#gossip_page", as: "gossip"
