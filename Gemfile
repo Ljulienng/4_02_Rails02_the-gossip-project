@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
-gem 'webpacker'
 gem 'faker', git: 'https://github.com/stympy/faker'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -69,3 +68,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'table_print'
+gem 'webpacker', '~> 3.5'
