@@ -1,0 +1,19 @@
+<div class="container h-100 d-flex justify-content-center">
+  <div class="jumbotron my-auto">
+    <h1 class="display-4">Welcome <%= User.find(params[:user_id]).first_name %></h1>
+    <p class = "display-5">Viens découvrir nos potins:</p>
+  </div>
+
+
+<div class="card-columns">
+<% Gossip.all.each do |gossip|%>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%=gossip.author.first_name%></h5>
+        <p class="card-text"><%=gossip.title%></p>
+        <%= link_to "See the card", gossip_path(params[:first_name],gossip.id), :class => "btn btn-primary" %>
+      </div>
+    </div>
+<% end %>
+</div>
+</div>
