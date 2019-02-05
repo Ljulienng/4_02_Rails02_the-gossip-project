@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   # get '/welcome/:first_name', to: "dynamic#welcome"
   # get '/:first_name/gossip_page/:id/author', to: "dynamic#author_page"
 
-  # get '/contact', to: "static#contact"
-  # get "/team", to: "static#team"
+  get '/contact', to: "static#contact"
+  get '/team', to: "static#team"
   # get "/:first_name/gossip_page/:id", to: "dynamic#gossip_page"
 
   resources :users, only: [:new, :create] do
