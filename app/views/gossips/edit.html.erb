@@ -1,0 +1,8 @@
+<form action= <%= users_path %> method="POST">
+	<input name="utf8" type="hidden" value="&#x2713;" />
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  <p>First name : <input type='text' name='first_name'></p>
+  <p>     Email : <input type='text' name='email'><br/></p>
+  <input type='submit'/>
+</form>
+
