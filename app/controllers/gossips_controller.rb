@@ -17,7 +17,7 @@ class GossipsController < ApplicationController
     @gossip = Gossip.new(title: params[:title], content: params[:content], author_id: 100)
 
     if @gossip.save
-      redirect_to root_path
+      redirect_to user_gossips_path(User.all.sample.id)
     
     else
       render "new"
