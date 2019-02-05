@@ -6,7 +6,12 @@
   <div class="card-body">
     Author: <%= link_to "#{@gossip.author.first_name}", user_gossip_author_path(params[:user_id],params[:id],@gossip.author.id) %> 
     <p class="card-text">Content: <%= @gossip.content %></p>
-    <p class="card-text"><%= link_to "Edit this Gossip", edit_user_gossip_path(params[:user_id],params[:id]), :class => "btn btn-primary btn-sm" %></p>
-    <p class="card-text"><%= link_to "Back to gossip list", user_gossips_path(params[:user_id]), :class => "btn btn-primary btn-sm" %></p>
+    <div class ="button-box col-lg-12" style="text-align: center;">
+	    <%= link_to "Edit this Gossip", edit_user_gossip_path(params[:user_id],params[:id]), :class => "btn btn-success btn-sm" %>
+	    <%= link_to "Back to gossip list", user_gossips_path(params[:user_id]), :class => "btn btn-primary btn-sm" %>
+	    <%= link_to "Delete", user_gossip_path(params[:user_id], @gossip), :confirm => "Are you sure ?", :method => :delete, :class => "btn btn-danger btn-sm" %>
+	    
+
+	  </div>
   </div>
 </div>
