@@ -1,8 +1,23 @@
-<form action= <%= users_path %> method="POST">
-	<input name="utf8" type="hidden" value="&#x2713;" />
-	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
-  <p>First name : <input type='text' name='first_name'></p>
-  <p>     Email : <input type='text' name='email'><br/></p>
-  <input type='submit'/>
-</form>
+<div class="card">
+  <div class="card-header">
+    Gossip n°<%= params[:id] %>: <%= @gossip.title %>
+  </div>
+  <div class="card-body">
+    Author: <%= link_to "#{@gossip.author.first_name}", user_gossip_author_path(params[:user_id],params[:id],@gossip.author.id) %> 
+    <p class="card-text">Content: <%= @gossip.content %></p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <form action= <%= user_gossip_path %> method="PATCH">
+      <input name="utf8" type="hidden" value="&#x2713;" />
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+      <p>New Title : <input type='text' name='title' value= <%= @gossip.title %> ></p>
+      <p>New Author : <input type='text' name='author' value= <%= @gossip.author.first_name %>></p>  
+      <p>New Content : <input type='text' name='content'><br/></p>
+      <input type='submit'/>
+    </form>
+  </div>
+</div>
 
