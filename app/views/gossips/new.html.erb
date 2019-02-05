@@ -1,6 +1,19 @@
 <html>
   <body>
 
+    <div class="alert alert-danger" role="alert">
+
+      <% if @gossip.errors.any? %>
+        <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+        <ul>
+          <% @gossip.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+    <br/>
+
     <%= form_tag url_for(action: 'create'), method: "post" do %>
 
       <%= label_tag 'Title' %>
@@ -15,17 +28,7 @@
 
     <% end %>
 
-    <div class="alert alert-danger" role="alert">
 
-      <% if @gossip.errors.any? %>
-        <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
-        <ul>
-          <% @gossip.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
 
     <!-- ... -->
   </body>
