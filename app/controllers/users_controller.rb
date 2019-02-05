@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       redirect_to user_gossips_path(@user.id)
     else
       render root
+    end
   end
 
 end

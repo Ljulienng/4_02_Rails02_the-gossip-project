@@ -11,7 +11,7 @@
       <div class="card-body">
         <h5 class="card-title"><%=gossip.author.first_name%></h5>
         <p class="card-text"><%=gossip.title%></p>
-        <%= link_to "See the card", gossip_path(params[:first_name],gossip.id), :class => "btn btn-primary" %>
+        <%= link_to "See the card", user_gossip_path(params[:user_id],gossip.id), :class => "btn btn-primary" %>
       </div>
     </div>
 <% end %>
