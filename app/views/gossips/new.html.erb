@@ -1,15 +1,14 @@
 <html>
   <body>
-    <!-- ... -->
 
     <%= form_tag url_for(action: 'create'), method: "post" do %>
 
       <%= label_tag 'Title' %>
-      <%= text_field_tag 'title', @gossip.title %>
-      <br /> <br />
+      <%= text_field_tag 'title', @gossip.title, :class => "form-control" %>
+      <br />
 
       <%= label_tag 'Content' %>
-      <%= text_area_tag 'content', @gossip.content %>
+      <%= text_area_tag 'content', @gossip.content, :class => "form-control" %>
       <br /> <br />
 
       <%= submit_tag "Create Gossip", :class => "btn btn-primary btn-sm" %>
