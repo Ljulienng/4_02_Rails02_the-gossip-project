@@ -18,7 +18,6 @@ class GossipsController < ApplicationController
 
     if @gossip.save
       redirect_to user_gossips_path(User.all.sample.id)
-    
     else
       render "new"
     end
@@ -32,12 +31,10 @@ class GossipsController < ApplicationController
   end
 
   def update
-    gossip = Gossip.find(params[:id])
-    gossip.title = params[:title]
-    gossip.author = params[:author]
-    gossip.content = params[:content]
-    gossip.save
-    redirect_to user_gossip_path(params[user_id],@gossip.id)
+    @gossip = Gossip.find(params[:id])
+    new_gossip = params.require(:gossip).permit(:title, :author, :content)
+    @gossip.update(new_gossip)
+    redirect_back
   end
 
   def destroy
