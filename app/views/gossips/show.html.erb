@@ -1,6 +1,6 @@
 <body style="text-align: center">
 <div class="card">
-  <div class="card-header">
+  <div class="card-header" >
     Gossip n°<%= params[:id] %>: <%= @gossip.title %>
   </div>
 
@@ -15,8 +15,8 @@
 
   </div>
 </div>
-<div class="card-body">
+
   <p></p>
-  <div class ="button-box col-lg-12"><%= link_to "Back to gossip list", user_gossips_path(params[:user_id]), :class => "btn btn-primary btn-sm" %></p>
-</div>
+  <div class ="button-box col-lg-12"><%= link_to "Back to gossip list", user_gossips_path(params[:user_id]), :class => "btn btn-dark btn-sm" %></p>
+
 </body>

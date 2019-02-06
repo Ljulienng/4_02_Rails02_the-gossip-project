@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="/application.css" type="text/css">
     <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+    }
+    body {
+
+      background: linear-gradient(#e66465, #9198e5);
+    }
     .card-columns {
     @include media-breakpoint-only(lg) {
       column-count: 4;
@@ -75,14 +83,13 @@
       padding-left: 30%; 
       padding-right:30%
     }
-    
 
     </style>
     
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Gossip</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -126,14 +133,5 @@
   </nav>
     <%= yield %>
     
-    <footer class="page-footer font-small bg-primary">
-
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">© 2018 Copyright:
-        <a href="https://mdbootstrap.com/education/bootstrap/"></a>
-      </div>
-      <!-- Copyright -->
-    
-    </footer>
   </body>
 </html>

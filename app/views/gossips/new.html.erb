@@ -25,7 +25,7 @@
           <%= text_area_tag 'content', @gossip.content, :class => "form-control" %>
           <br /> <br />
 
-          <%= submit_tag "Create Gossip", :class => "btn btn-primary btn-sm" %>
+          <%= submit_tag "Create Gossip", :class => "btn btn-dark btn-sm" %>
 
         <% end %>
       </div>
@@ -33,7 +33,7 @@
   
     <div class="card-body">
       <p></p>
-      <div class ="button-box col-lg-12"><%= link_to "Back to gossip list", user_gossips_path(params[:user_id]), :class => "btn btn-primary btn-sm" %></p>
+      <div class ="button-box col-lg-12"><%= link_to "Back to gossip list", user_gossips_path(params[:user_id]), :class => "btn btn-dark btn-sm" %></p>
     </div>
     
   </body>
