@@ -11,17 +11,31 @@
   </thead>
 
   <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.content %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+
+
+
+
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Comment', new_comment_path %>
+<div class="container h-100 d-flex justify-content-center">
+  <div class="card-columns">
+    <% @comments.each do |comment|%>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%=comment.author.first_name%></h5>
+            <p class="card-text"><%=comment.content%></p>
+            <div class ="button-box col-lg-12" id="edit-stuff">
+              <td><%= link_to 'Show', user_gossip_comment_path(params[:user_id],params[:gossip_id],comment) %></td>
+              <td><%= link_to 'Edit', edit_user_gossip_comment_path(params[:user_id],params[:gossip_id],comment) %></td>
+              <td><%= link_to 'Destroy', user_gossip_comment_path(params[:user_id],params[:gossip_id],comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </div>
+        </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'New Comment', new_user_gossip_comment_path(params[:user_id],params[:gossip_id]) %>

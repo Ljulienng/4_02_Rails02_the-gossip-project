@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 2019_02_06_130346) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
-    t.bigint "user_id"
+    t.bigint "author_id"
     t.bigint "gossip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_comments_on_author_id"
     t.index ["gossip_id"], name: "index_comments_on_gossip_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "gossip_tags", force: :cascade do |t|
@@ -53,8 +53,10 @@ ActiveRecord::Schema.define(version: 2019_02_06_130346) do
   create_table "likes", force: :cascade do |t|
     t.bigint "gossip_id"
     t.bigint "comment_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_likes_on_author_id"
     t.index ["comment_id"], name: "index_likes_on_comment_id"
     t.index ["gossip_id"], name: "index_likes_on_gossip_id"
   end
@@ -84,12 +86,12 @@ ActiveRecord::Schema.define(version: 2019_02_06_130346) do
 
   create_table "undercomments", force: :cascade do |t|
     t.text "content"
-    t.bigint "user_id"
+    t.bigint "author_id"
     t.bigint "comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_undercomments_on_author_id"
     t.index ["comment_id"], name: "index_undercomments_on_comment_id"
-    t.index ["user_id"], name: "index_undercomments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

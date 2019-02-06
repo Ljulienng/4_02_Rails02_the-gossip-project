@@ -224,13 +224,15 @@
             </ul>
           </div>
 
-          <div id="head2">
-            <div>
-              <h1 class="display-4">Welcome <%= User.find(params[:user_id]).first_name %></h1>
-              <p class = "display-5" style="font-size: 14px">Check out our gossips >>></p>
+          <% if params[:user_id] != nil %>
+            <div id="head2">
+              <div>
+                <h1 class="display-4">Welcome <%= User.find(params[:user_id]).first_name %></h1>
+                <p class = "display-5" style="font-size: 14px">Check out our gossips >>></p>
+              </div>
             </div>
-          </div>
-    
+          <% end %>
+
         </nav>
         <%= yield %>
       </div>

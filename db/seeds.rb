@@ -53,17 +53,17 @@ end
 end
 
 20.times do
-  Comment.create!(content: Faker::HowIMetYourMother.catch_phrase, user: User.all.sample, gossip: Gossip.all.sample)
+  Comment.create!(content: Faker::HowIMetYourMother.catch_phrase, author: User.all.sample, gossip: Gossip.all.sample)
 end
 
 20.times do
   if ["pile","face"].sample == "pile"                   # Petit lancer de pièce pour voir si on pose notre like sur un gossip ou sur un comment
-    Like.create!(gossip: Gossip.all.sample)
+    Like.create!(gossip: Gossip.all.sample, author: User.all.sample)
   else
-    Like.create!(comment: Comment.all.sample)
+    Like.create!(comment: Comment.all.sample, author: User.all.sample)
   end
 end
 
 20.times do
-  Undercomment.create!(user: User.all.sample, comment: Comment.all.sample, content: "You think like "+Faker::GreekPhilosophers.name+", I love it. Please give me your number")
+  Undercomment.create!(author: User.all.sample, comment: Comment.all.sample, content: "You think like "+Faker::GreekPhilosophers.name+", I love it. Please give me your number")
 end

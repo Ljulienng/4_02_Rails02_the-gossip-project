@@ -1,19 +1,13 @@
 <div class="container h-100 d-flex justify-content-center">
-  <div class="jumbotron my-auto">
-    <h1 class="display-4">Welcome <%= User.find(params[:user_id]).first_name %></h1>
-    <p class = "display-5">Check out our gossips >>></p>
-  </div>
-
-
-<div class="card-columns">
-<% @gossips.each do |gossip|%>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title"><%=gossip.author.first_name%></h5>
-        <p class="card-text"><%=gossip.title%></p>
-        <%= link_to "See the card", user_gossip_path(params[:user_id],gossip.id), :class => "btn btn-dark" %>
+  <div class="card-columns">
+  <% @gossips.each do |gossip|%>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%=gossip.author.first_name%></h5>
+          <p class="card-text"><%=gossip.title%></p>
+          <%= link_to "See the card", user_gossip_path(params[:user_id],gossip.id), :class => "btn btn-dark" %>
+        </div>
       </div>
-    </div>
-<% end %>
-</div>
+  <% end %>
+  </div>
 </div>
