@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :undercomments
+  resources :comments
   resources :cities
   root 'static#homepage'
   get '/contact', to: "static#contact"
@@ -8,6 +10,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create] do
     resources :gossips do
       resources :authors, only: [:show]
+      resources :comments do
+        resources :undercomment
+      end
     end
   end
   
