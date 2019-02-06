@@ -129,54 +129,99 @@
       padding-right:30%
     }
 
+    .navbarColor02 {
+      min-width: 100%;
+      display: flex;
+      flex-flow: nowrap;
+      justify-content:left;
+      margin:0;
+    }
+
+    #head1 {
+      display: flex;
+      min-width:40%;
+      flex-flow: row;
+      justify-content: space-evenly;
+      align-self: space-around;
+      font-size: 20px;
+      font-family: "Liberation Sans";
+      color:rgba(242, 255, 0, 0.945);
+    }
+
+    #head2 {
+      display: flex;
+      min-width: 65%;
+      flex-flow: row nowrap;
+      justify-content:space-between;
+      align-items: center;
+      align-content:flex-end;
+      align-self:space-around;
+      color:white;
+      margin-right:30px;
+      padding-left:30vh
+    }
+
     </style>
     
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Gossip</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="head">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <!-- <a class="navbar-brand" href="#"></a> -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-    <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="navbar-nav mr-auto">
-        
-        <% if params[:user_id] == nil %>
-          <li class="nav-item">
-            <%= link_to  "Home", user_gossips_path(User.all.sample.id), :class => "nav-link" %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to  "Home", user_gossips_path(params[:user_id]), :class => "nav-link" %>
-          </li>
-        <% end %>
+          <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto" id="head1">
+              
+              <% if params[:user_id] == nil %>
+                <li class="nav-item">
+                  <%= link_to  "Home", user_gossips_path(User.all.sample.id), :class => "nav-link" %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to  "Home", user_gossips_path(params[:user_id]), :class => "nav-link" %>
+                </li>
+              <% end %>
 
-        <li class="nav-item">
-          <%= link_to "Team", team_path, :class => "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Contact", contact_path, :class => "nav-link" %>
-        </li>
+              <li class="nav-item">
+                <%= link_to "Team", team_path, :class => "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Contact", contact_path, :class => "nav-link" %>
+              </li>
 
-        <% if params[:user_id] == nil %>
-          <li>
-            <%= link_to "New Gossip", new_user_gossip_path(User.all.sample.id), :class => "nav-link" %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to "New Gossip", new_user_gossip_path(params[:user_id]), :class => "nav-link" %>
-          </li>
-        <% end %>
+              <% if params[:user_id] == nil %>
+                <li>
+                  <%= link_to "New Gossip", new_user_gossip_path(User.all.sample.id), :class => "nav-link" %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to "New Gossip", new_user_gossip_path(params[:user_id]), :class => "nav-link" %>
+                </li>
+              <% end %>
 
-        <li class="nav-item">
-          <%= link_to "Disconnect", root_path, :class => "nav-link" %>
-        </li>
-      </ul>
-    </div>
-  </nav>
-    <%= yield %>
+              <li class="nav-item">
+                <%= link_to "Disconnect", root_path, :class => "nav-link" %>
+              </li>
+            </ul>
+          </div>
+
+          <div id="head2">
+            <div>
+              <h1 class="display-4">Welcome <%= User.find(params[:user_id]).first_name %></h1>
+              <p class = "display-5" style="font-size: 14px">Check out our gossips >>></p>
+            </div>
+          </div>
     
+        </nav>
+        <%= yield %>
+      </div>
+
+      
+        
+    </div>
   </body>
 </html>
