@@ -1,19 +1,22 @@
-<div class="card">
-  <div class="card-header">
-    <%=@author.first_name%>
+<body style="text-align: center">
+
+  <div class="card">
+    <div class="card-header">
+      <%=@author.first_name.upcase%>
+    </div>
+
+    <div class="card-body">
+      <p class="card-text"> About <%=@author.first_name%>:</p>
+      <p class="card-text"> <%=@author.description%></p>
+    </div>
+    <div class="card"></br>
+      <p class="card-text"> <%=@author.first_name%>'s Gossips :</p>
+        <% @author.written_gossips.each do |gossip| %>
+        <li><%= link_to "#{gossip.title}", user_gossip_path(params[:user_id],gossip.id) %></li>
+        <% end %></br>
+    </div>
+  </div></br>
+  <div class ="button-box col-lg-12"><%= link_to "Back to gossip list", user_gossips_path(params[:user_id]), :class => "btn btn-primary btn-sm" %></p>
   </div>
 
-  <div class="card-body">
-    <p class="card-text"> About <%=@author.first_name%>:</p>
-    <p class="card-text"> <%=@author.description%></p>
-    <p>______________________________________________________</p>
-    <p class="card-text"> <%=@author.first_name%>'s Gossips :</p>
-    <ul>
-      <% @author.written_gossips.each do |gossip| %>
-      <li><%= link_to "#{gossip.title}", user_gossip_path(params[:user_id],gossip.id) %></li>
-      <% end %>
-    </ul>
-    <p class="card-text"><%= link_to "Back to gossip list", user_gossips_path(params[:user_id]), :class => "btn btn-primary btn-sm" %></p>    
-  </div>
-</div>
-
+</body>

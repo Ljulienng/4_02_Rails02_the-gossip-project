@@ -1,36 +1,38 @@
-<div class="card">
-  <div class="card-header">
-    Gossip n°<%= params[:id] %>: <%= @gossip.title %>
+<body style="text-align: center">
+
+  <div class="card">
+    <div class="card-header">
+      Gossip n°<%= params[:id] %>: <%= @gossip.title %>
+    </div>
+    <div class="card-body">
+      Author: <%= link_to "#{@gossip.author.first_name}", user_gossip_author_path(params[:user_id],params[:id],@gossip.author.id) %> 
+      <p class="card-text">Content: <%= @gossip.content %></p>
+    </div>
   </div>
-  <div class="card-body">
-    Author: <%= link_to "#{@gossip.author.first_name}", user_gossip_author_path(params[:user_id],params[:id],@gossip.author.id) %> 
-    <p class="card-text">Content: <%= @gossip.content %></p>
+
+  <div class="card">
+    <div class="card-body">
+      <%= form_for @gossip, url: {action: 'update'} do |gossip| %>
+
+        <div class = "form-group">
+          <label>New Title</label>
+          <%= gossip.text_field :title, class: 'form-control' %>
+        </div>
+
+        <div class = "form-group">
+          <label>New Content</label>
+          <%= gossip.text_area :content, class: 'form-control' %>
+        </div>
+
+        <div class = "form-group">
+          <button type = "submit" class = "btn btn-primary btn-sm"> Edit Gossip </button>
+        </div>
+
+      <% end %>
+    </div>
   </div>
-</div>
 
-<div class="card">
-  <div class="card-body">
-    <%= form_for @gossip, url: {action: 'update'} do |gossip| %>
-
-      <div class = "form-group">
-        <label>New Title</label>
-        <%= gossip.text_field :title, class: 'form-control' %>
-      </div>
-
-      <div class = "form-group">
-        <label>New Content</label>
-        <%= gossip.text_area :content, class: 'form-control' %>
-      </div>
-
-      <div class = "form-group">
-        <button type = "submit" class = "btn btn-primary btn-sm"> Edit Gossip </button>
-      </div>
-
-    <% end %>
-  </div>
-</div>
-
-
+</body>
 
 <!-- <div class="card">
   <div class="card-body">
