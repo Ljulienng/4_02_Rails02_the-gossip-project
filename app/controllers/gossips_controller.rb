@@ -38,7 +38,7 @@ class GossipsController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     @gossip.destroy
-    redirect_to user_gossips_path(params[:user_id])
+    redirect_to user_gossips_path(params[:user_id]), notice: "The Gossip #{@gossip.title} has been deleted correctly."
   end
 
   private
