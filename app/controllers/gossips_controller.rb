@@ -32,14 +32,19 @@ class GossipsController < ApplicationController
 
   def update
     @gossip = Gossip.find(params[:id])
-    new_gossip = params.require(:gossip).permit(:title, :author, :content)
     @gossip.update(new_gossip)
-    redirect_back
+    redirect_to user_gossip_path(params[:user_id],@gossip.id)
   end
 
   def destroy
     # Méthode qui récupère le potin concerné et le détruit en base
     # Une fois la suppression faite, on redirige généralement vers la méthode index (pour afficher la liste à jour)
+  end
+
+  private
+
+  def new_gossip
+    params.require(:gossip).permit(:title, :author, :content)
   end
 
 end

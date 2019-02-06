@@ -10,6 +10,30 @@
 
 <div class="card">
   <div class="card-body">
+    <%= form_for @gossip, url: {action: 'update'} do |gossip| %>
+
+      <div class = "form-group">
+        <label>New Title</label>
+        <%= gossip.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class = "form-group">
+        <label>New Content</label>
+        <%= gossip.text_area :content, class: 'form-control' %>
+      </div>
+
+      <div class = "form-group">
+        <button type = "submit" class = "btn btn-primary btn-sm"> Edit Gossip </button>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+
+
+<!-- <div class="card">
+  <div class="card-body">
     <form action= <%= user_gossip_path %> method="post">
       <input name="utf8" type="hidden" value="&#x2713;" />
       <input type='hidden' name="_method" value="patch" >
@@ -20,27 +44,4 @@
       <input class= "btn btn-primary btn-sm" type='submit'/>
     </form>
   </div>
-</div>
-
-<%= form_for @gossip do |gossip| %>
-
-<div class = "form-group">
-  <label>New Title</label>
-<%= gossip.text_field :title, class: 'form-control' %>
-</div>
-
-<div class = "form-group">
-  <label>New Author</label>
-<%= gossip.text_field :author, class: 'form-control' %>
-</div>
-
-<div class = "form-group">
-  <label>New Content</label>
-<%= gossip.text_area :content, class: 'form-control' %>
-</div>
-
-<div class = "form-group">
-  <button type = "submit" class = "btn btn-primary"> Edit Gossip </button>
-</div>
-
-<% end %>
+</div> -->
