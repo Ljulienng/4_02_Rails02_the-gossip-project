@@ -13,7 +13,7 @@ class GossipsController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.new(new_gossip)
+    @gossip = Gossip.new(title: params[:title],content: params[:content], author: User.find(params[:user_id]))
 
     if @gossip.save
       redirect_to user_gossips_path(User.all.sample.id)
@@ -44,7 +44,7 @@ class GossipsController < ApplicationController
   private
 
   def new_gossip
-    params.require(:gossip).permit(:title, :content, :author)
+    params.require(:gossip).permit(:title, :content)
   end
 
 end
