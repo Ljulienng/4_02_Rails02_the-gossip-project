@@ -7,6 +7,10 @@
     Author: <%= link_to "#{@gossip.author.first_name}", user_gossip_author_path(params[:user_id],params[:id],@gossip.author.id) %> 
     <p class="card-text">Content: <%= @gossip.content %></p>
     <p class="card-text"><%= link_to "Edit this Gossip", edit_user_gossip_path(params[:user_id],params[:id]), :class => "btn btn-primary btn-sm" %></p>
-    <p class="card-text"><%= link_to "Back to gossip list", user_gossips_path(params[:user_id]), :class => "btn btn-primary btn-sm" %></p>
+    <p class="card-text"><%= link_to "Delete this Gossip", user_gossip_path(params[:user_id],params[:id]), method: :delete, data:{ confirm: "Are you sure you want to delete this gossip?"}, :class => "btn btn-danger btn-sm"%></p>  
   </div>
+</div>
+<div class="card-body">
+  <p></p>
+  <p class="card-text"><%= link_to "Back to gossip list", user_gossips_path(params[:user_id]), :class => "btn btn-primary btn-sm" %></p>
 </div>
