@@ -67,6 +67,12 @@
     .button:hover {
       background-color: #555;
     }
+
+    .card-body {
+      padding-left: 30%; 
+      padding-right:30%
+    }
+
     </style>
 
   </head>
@@ -100,7 +106,7 @@
 
         <% if params[:user_id] == nil %>
           <li>
-            <%= link_to "New Gossip", new_user_gossip_path(100), :class => "nav-link" %>
+            <%= link_to "New Gossip", new_user_gossip_path(User.all.sample.id), :class => "nav-link" %>
           </li>
         <% else %>
           <li>
