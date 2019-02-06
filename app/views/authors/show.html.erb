@@ -6,16 +6,23 @@
     </div>
 
     <div class="card-body">
-      <p class="card-text"> About <%=@author.first_name%>:</p>
+      <p class="card-text"> About <%=@author.first_name%> (<%=@author.age%> years old)</p>
       <p class="card-text"> <%=@author.description%></p>
     </div>
-    <div class="card"></br>
+    <div class="card-body">
+      <p class="card-text"> Contact info:</p>
+      <p class="card-text"> <%=@author.email%></p>
+    </div>
+
+
+
+    <div class="card"><br />
       <p class="card-text"> <%=@author.first_name%>'s Gossips :</p>
         <% @author.written_gossips.each do |gossip| %>
         <li><%= link_to "#{gossip.title}", user_gossip_path(params[:user_id],gossip.id) %></li>
-        <% end %></br>
+        <% end %><br />
     </div>
-  </div></br>
+  </div><br />
   <div class ="button-box col-lg-12"><%= link_to "Back to gossip list", user_gossips_path(params[:user_id]), :class => "btn btn-primary btn-sm" %></p>
   </div>
 
