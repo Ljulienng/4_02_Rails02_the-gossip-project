@@ -13,12 +13,18 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(title: params[:title], content: params[:content], author_id: params[:user_id])
+    @user = User.new(new_user)
     if @user.save
       redirect_to user_gossips_path(User.all.sample.id)
     else
       render "new"
     end
+  end
+
+  private
+
+  def new_user
+    params.require(:user).permit(:first_name, :last_name, :age, :description, :city)
   end
 
 end
