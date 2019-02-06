@@ -13,7 +13,7 @@ class GossipsController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.new(title: params[:title], content: params[:content], author_id: 100)
+    @gossip = Gossip.new(title: params[:title], content: params[:content], author_id: params[:user_id])
 
     if @gossip.save
       redirect_to user_gossips_path(User.all.sample.id)
@@ -38,7 +38,7 @@ class GossipsController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     @gossip.destroy
-    redirect_to gossips_path(params[:user_id])
+    redirect_to user_gossips_path(params[:user_id])
   end
 
   private
