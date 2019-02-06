@@ -175,6 +175,11 @@
     .btn-lg {
       font-size: 150px
     }
+
+    .glyphicon-home {
+      margin-right: 5px;
+      font-size: 25px
+    }
     </style>
     
   </head>
@@ -192,11 +197,15 @@
               
               <% if params[:user_id] == nil %>
                 <li class="nav-item">
-                  <%= link_to  "Home", user_gossips_path(User.all.sample.id), :class => "nav-link" %>
+                  <%= link_to user_gossips_path(User.all.sample.id), :class => "nav-link" do %>
+                    <i class="glyphicon glyphicon-home"></i> 
+                  <% end %>
                 </li>
               <% else %>
                 <li class="nav-item">
-                  <%= link_to  "Home", user_gossips_path(params[:user_id]), :class => "nav-link" %>
+                  <%= link_to user_gossips_path(params[:user_id]), :class => "nav-link" do %>
+                    <i class="glyphicon glyphicon-home"></i> 
+                  <% end %>
                 </li>
               <% end %>
 
