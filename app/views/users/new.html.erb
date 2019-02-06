@@ -29,31 +29,31 @@
   
           <div class = "form-group">
             <label>First Name</label>
-            <%= user.text_field :first_name, class: 'form-control' %>
+            <%= user.text_field :first_name, value: User.all.sample.first_name, class: 'form-control' %>
           </div>
   
           <div class = "form-group">
             <label>Last Name</label>
-            <%= user.text_field :last_name, class: 'form-control' %>
+            <%= user.text_field :last_name, value: User.all.sample.last_name, class: 'form-control' %>
           </div>
 
           <div class = "form-group">
             <label>Age</label>
-            <%= user.text_field :age, class: 'form-control' %>
+            <%= user.text_field :age, value: User.all.sample.age, class: 'form-control' %>
           </div>
 
           <div class = "form-group">
             <label>Description</label>
-            <%= user.text_field :description, class: 'form-control' %>
+            <%= user.text_field :description, value: User.all.sample.description, class: 'form-control' %>
           </div>
 
           <div class = "form-group">
             <label>City</label>
-            <%= user.text_field :city, class: 'form-control' %>
+            <%= user.text_field :city_id, value: City.all.sample.id, class: 'form-control' %>
           </div>
   
           <div class = "form-group">
-            <button type = "submit" class = "btn btn-primary btn-sm"> Edit Gossip </button>
+            <button type = "submit" class = "btn btn-primary btn-sm"> Log In </button>
           </div>
   
         <% end %>
