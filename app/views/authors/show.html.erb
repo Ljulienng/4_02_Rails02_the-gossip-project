@@ -1,20 +1,18 @@
 <body style="text-align: center">
 
   <div class="card">
-    <div class="card-header">
-      <%=@author.first_name.upcase%>
+    <div class="card-header" style="color:brown">
+      <%=@author.first_name.upcase%> (<%=@author.age%> years old, lives in <%=author.city%>)
     </div>
 
     <div class="card-body">
-      <p class="card-text"> About <%=@author.first_name%> (<%=@author.age%> years old)</p>
+      <p class="card-text"> About <%=@author.first_name%>:</p>
       <p class="card-text"> <%=@author.description%></p>
     </div>
     <div class="card-body">
       <p class="card-text"> Contact info:</p>
       <p class="card-text"> <%=@author.email%></p>
     </div>
-
-
 
     <div class="card"><br />
       <p class="card-text"> <%=@author.first_name%>'s Gossips :</p>

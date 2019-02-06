@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :cities
   root 'static#homepage'
   get '/contact', to: "static#contact"
   get '/team', to: "static#team"
