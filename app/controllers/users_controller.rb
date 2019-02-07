@@ -15,10 +15,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(new_user)
     @user.city_id = params[:city_id]
-    puts @user
-    puts @user.city.name
-    puts @user.first_name
-    puts @user
     if @user.save
       redirect_to "/"
       puts @user
