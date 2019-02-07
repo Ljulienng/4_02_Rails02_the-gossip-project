@@ -1,18 +1,28 @@
 <body>
 
-  <div class="card" style ="text-align: center">
+  <div class="alert alert-danger" role="alert">
+    <% if @comment.errors.any? %>
+      <p>Comment could not be created for the following reasons :</p>
+      <ul>
+        <% @comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="card">
     <div class="card-body">
       <%= form_tag url_for(action: 'create'), method: "post" do %>
-        <%= label_tag 'Content' %>
 
-        <%= text_area_tag 'Your comment', @comment.content, :class => "form-control" %>
+        <%= label_tag 'Content' %>
+        <%= text_area_tag 'Your Comment', @comment.content, :class => "form-control" %>
         <br />
-        <%= submit_tag "Create comment", :class => "btn btn-dark btn-sm" %>
+        <%= submit_tag "Create Comment", :class => "btn btn-dark btn-sm" %>
 
       <% end %>
     </div>
   </div>
-
 
   <div class ="button-box col-lg-12" id="end-box">
     <br />
