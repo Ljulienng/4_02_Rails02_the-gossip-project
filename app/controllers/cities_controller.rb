@@ -71,4 +71,5 @@ class CitiesController < ApplicationController
     def city_params
       params.require(:city).permit(:string, :string)
     end
+
 end
