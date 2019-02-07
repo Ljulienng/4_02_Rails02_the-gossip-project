@@ -16,8 +16,8 @@ class UsersController < ApplicationController
     @user = User.new(new_user)
     @user.city_id = params[:city_id]
     if @user.save
-      redirect_to "/"
-      puts @user
+      session[:user_id] = @user.id
+	    redirect_to user_gossips_path(session[:user_id])
     else
       render "new"
     end

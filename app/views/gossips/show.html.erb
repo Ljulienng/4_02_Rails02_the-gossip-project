@@ -34,7 +34,7 @@
       
   <div class ="button-box col-lg-12" id="end-box">
     <br />
-    <%= link_to "Read Comments", user_gossip_comments_path(params[:user_id],params[:id]), :class => "btn btn-primary btn-lg" %>
+    <%= link_to "Read Comments (#{@gossip.comments.size})", user_gossip_comments_path(params[:user_id],params[:id]), :class => "btn btn-primary btn-lg" %>
   </div>
 
 </body>
