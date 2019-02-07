@@ -1,5 +1,5 @@
 class GossipsController < ApplicationController
-  before_action :authenticate_user, only: [:create, :new, :destroy]
+  before_action :authenticate_user, only: [:create, :new, :destroy, :show, :index]
 
   def index
     @gossips = Gossip.all

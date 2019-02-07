@@ -230,6 +230,12 @@ text-align: center;
   justify-content: space-around;
 }
 
+#disconnect {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+}
+
 .btn, .btn-visited {
   font-family: fantasy;
 }
