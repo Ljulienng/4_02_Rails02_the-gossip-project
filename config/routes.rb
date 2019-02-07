@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :cities, only: [:index, :show]
   resources :users, only: [:new, :create] do
     resources :gossips do
-      resources :likes, only: [:create]
+      resources :likes, only: [:create, :destroy]
       resources :authors, only: [:show]
       resources :comments do
         resources :undercomment

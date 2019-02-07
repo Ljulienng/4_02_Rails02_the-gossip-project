@@ -15,9 +15,10 @@
 
       <div class ="button-box col-lg-12" id="edit-stuff">
         <%= button_to '💖 LIKE 💖', user_gossip_likes_path(params[:user_id], @gossip.id), method: :post, class: "btn btn-dark btn-sm" %>
-        <!-- <% if Like.where("gossip_id = ? AND author_id = ?", @gossip.id, params[:user_id]).size > 0 %>
-          <%= button_to '💔 UNLIKE 💔', user_gossip_likes_path(params[:user_id], @gossip.id, :action => "destroy"), method: :post, class: "btn btn-dark btn-sm" %>
-        <% end %> -->
+        <% likes = Like.where("gossip_id = ? AND author_id = ?", @gossip.id, params[:user_id]) %>
+        <% if likes.size > 0 %>
+          <%= button_to '💔 UNLIKE 💔', user_gossip_like_path(params[:user_id], @gossip.id, likes.last.id), method: :delete, class: "btn btn-dark btn-sm" %>
+        <% end %>
       </div>
     
       <div class ="button-box col-lg-12" id="edit-stuff">
