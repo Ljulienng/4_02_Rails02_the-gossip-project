@@ -67,8 +67,8 @@
           <% if params[:user_id] != nil %>
             <div id="head2">
               <div>
-                <h1 class="display-4">Welcome <%= User.find(params[:user_id]).first_name %></h1>
-                <p class = "display-5" style="font-size: 14px">Check out our gossips >>></p>
+                <h1 class="display-4" style="font-family: fantasy">Welcome <%= User.find(params[:user_id]).first_name %></h1>
+                <!-- <p class = "display-5" style="font-size: 14px">Check out our gossips >>></p> -->
               </div>
             </div>
           <% end %>
