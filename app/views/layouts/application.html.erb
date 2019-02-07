@@ -27,17 +27,14 @@
           <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto" id="head1">
               
-              <% if params[:user_id] == nil %>
+              <% if session[:user_id] != nil %>
                 <li class="nav-item">
-                  <%= link_to user_gossips_path(User.all.sample.id), :class => "nav-link" do %>
+                  <%= link_to user_gossips_path(session[:user_id]), :class => "nav-link" do %>
                     <i class="glyphicon glyphicon-home"></i> 
                   <% end %>
                 </li>
               <% else %>
                 <li class="nav-item">
-                  <%= link_to user_gossips_path(params[:user_id]), :class => "nav-link" do %>
-                    <i class="glyphicon glyphicon-home"></i> 
-                  <% end %>
                 </li>
               <% end %>
 
@@ -48,27 +45,25 @@
                 <%= link_to "Contact", contact_path, :class => "nav-link" %>
               </li>
 
-              <% if params[:user_id] == nil %>
+              <% if session[:user_id] != nil %>
                 <li>
-                  <%= link_to "New Gossip", new_user_gossip_path(User.all.sample.id), :class => "nav-link" %>
+                  <%= link_to "New Gossip", new_user_gossip_path(session[:user_id]), :class => "nav-link" %>
                 </li>
-              <% else %>
-                <li>
-                  <%= link_to "New Gossip", new_user_gossip_path(params[:user_id]), :class => "nav-link" %>
-                </li>
+                <li class="nav-item">
+                  <%= link_to "Disconnect", session_path(session), method: "delete", :class => "nav-link" %>
+                 </li>
+
               <% end %>
 
-              <li class="nav-item">
-                <%= link_to "Disconnect", root_path, :class => "nav-link" %>
-              </li>
+              
             </ul>
           </div>
 
-          
+
           <div id="head2">
-            <% if params[:user_id] != nil %>
+            <% if session[:user_id] != nil %>
               <div>
-                <h1 class="display-4" style="font-family: fantasy">Welcome <%= User.find(params[:user_id]).first_name %></h1>
+                <h1 class="display-4" style="font-family: fantasy">Welcome <%=current_user.first_name%> </h1>
                 <!-- <p class = "display-5" style="font-size: 14px">Check out our gossips >>></p> -->
               </div>
             <% else %>

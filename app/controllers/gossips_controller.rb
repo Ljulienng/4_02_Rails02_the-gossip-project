@@ -1,4 +1,5 @@
 class GossipsController < ApplicationController
+  before_action :authenticate_user, only: [:create, :new, :destroy]
 
   def index
     @gossips = Gossip.all
@@ -49,7 +50,7 @@ class GossipsController < ApplicationController
       redirect_to new_session_path
     end
   end
-    
+
   def new_gossip
     params.require(:gossip).permit(:title, :content)
   end

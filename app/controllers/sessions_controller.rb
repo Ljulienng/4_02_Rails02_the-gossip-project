@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 	  # on vérifie si l'utilisateur existe bien ET si on arrive à l'authentifier (méthode bcrypt) avec le mot de passe 
 	  if user && user.authenticate(params[:password])
 	    session[:user_id] = user.id
-	    redirect_to team_path
+	    redirect_to user_gossips_path(session[:user_id])
 	    # redirige où tu veux, avec un flash ou pas
 
 	  else
@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
 
 	def destroy
   	session.delete(:user_id)
+  	redirect_to "/"
 	end
 
 end
