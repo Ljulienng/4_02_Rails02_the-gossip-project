@@ -23,8 +23,8 @@ Like.destroy_all
   City.create!(name: Faker::GameOfThrones.city, zip_code: "1#{i}5#{i}8")
 end
  
-10.times do
-  User.create!(first_name: Faker::Name.unique.first_name,last_name: Faker::Name.last_name, email: Faker::Internet.email, age: rand(13..45), description: Faker::Lebowski.unique.quote, city: City.all.sample)
+20.times do
+  User.create!(first_name: Faker::Name.unique.first_name,last_name: Faker::Name.last_name,password: "123456", email: Faker::Internet.unique.email, age: rand(13..45), description: Faker::Lebowski.unique.quote, city: City.all.sample)
 end
 
 20.times do

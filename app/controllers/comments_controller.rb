@@ -38,7 +38,14 @@ class CommentsController < ApplicationController
     redirect_to user_gossip_comments_path(params[:user_id], params[:gossip_id]), notice: "The comment has been deleted correctly"
   end
 
-  private
+    private
+
+    def authenticate_user
+      unless current_user
+        flash[:danger] = "Please log in."
+        redirect_to new_session_path
+      end
+    end
 
     def set_comment
       @comment = Comment.find(params[:id])
