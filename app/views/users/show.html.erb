@@ -1,0 +1,24 @@
+<body>
+
+  <div class="card text-white bg-dark mb-3">
+    <div class="card-header" style="color:brown">
+      <%=@user.first_name%> <%= @user.last_name.upcase%> (<%=@user.age%> years old, lives in <%=@user.city.name%>)
+    </div>
+
+    <div class="card-body">
+      <p class="card-text"> About <%=@user.first_name%>:</p>
+      <p class="card-text"> <%=@user.description%></p>
+    </div>
+    <div class="card-body">
+      <p class="card-text"> Contact info:</p>
+      <p class="card-text"> <%=@user.email%></p>
+    </div>
+
+    <div class="card text-white bg-dark mb-3"><br />
+      <p class="card-text"> <%=@user.first_name%>'s Gossips :</p>
+        <% @user.written_gossips.each do |gossip| %>
+        <li><%= link_to "#{gossip.title}", user_gossip_path(session[:user_id],gossip.id) %></li>
+        <% end %><br />
+    </div>
+
+</body>
