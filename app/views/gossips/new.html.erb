@@ -1,40 +1,38 @@
-<html>
-  <body style="text-align: center">  
+<body>  
 
-    <div class="alert alert-danger" role="alert">
+  <div class="alert alert-danger" role="alert">
 
-      <% if @gossip.errors.any? %>
-        <p>Gossip could not be created for the following reasons :</p>
-        <ul>
-          <% @gossip.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+    <% if @gossip.errors.any? %>
+      <p>Gossip could not be created for the following reasons :</p>
+      <ul>
+        <% @gossip.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  
+  <div class="card">
+    <div class="card-body">
+      <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+        <%= label_tag 'Title' %>
+        <%= text_field_tag 'title', @gossip.title, :class => "form-control" %>
+        <br />
+
+        <%= label_tag 'Content' %>
+        <%= text_area_tag 'content', @gossip.content, :class => "form-control" %>
+        <br /> <br />
+
+        <%= submit_tag "Create Gossip", :class => "btn btn-dark btn-sm" %>
+
       <% end %>
     </div>
-    
-    <div class="card">
-      <div class="card-body">
-        <%= form_tag url_for(action: 'create'), method: "post" do %>
+  </div>
 
-          <%= label_tag 'Title' %>
-          <%= text_field_tag 'title', @gossip.title, :class => "form-control" %>
-          <br />
-
-          <%= label_tag 'Content' %>
-          <%= text_area_tag 'content', @gossip.content, :class => "form-control" %>
-          <br /> <br />
-
-          <%= submit_tag "Create Gossip", :class => "btn btn-dark btn-sm" %>
-
-        <% end %>
-      </div>
-    </div>
+  <div class="card-body">
+    <br /><br />
+    <div class ="button-box col-lg-12"><%= link_to "Back to gossip list", user_gossips_path(params[:user_id]), :class => "btn btn-dark btn-lg" %></p>
+  </div>
   
-    <div class="card-body">
-      <br /><br />
-      <div class ="button-box col-lg-12"><%= link_to "Back to gossip list", user_gossips_path(params[:user_id]), :class => "btn btn-dark btn-lg" %></p>
-    </div>
-    
-  </body>
-</html>
+</body>
