@@ -248,9 +248,19 @@ text-align: center;
   color: white !important;
 }
 
-.btn-lg, .btn-lg:visited  {
+.btn.btn-primary.btn-lg, .btn-btn-primary.btn-lg:visited  {
   font-size: 70px;
-  min-width: 70%;
+  width: 70%;
+  font-style: italic;
+  border: groove rgba(255, 255, 255, 0.74) 3px;
+  border-radius: 20px;
+  background-color: #23A6D5;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.btn.btn-secondary.btn-lg, .btn-btn-secondary.btn-lg:visited  {
+  font-size: 70px;
+  width: 35%;
   font-style: italic;
   border: groove rgba(255, 255, 255, 0.74) 3px;
   border-radius: 20px;
@@ -274,6 +284,14 @@ text-align: center;
 .glyphicon-home {
   margin-right: 5px;
   font-size: 25px
+}
+
+.btns-bottom {
+  text-align: center;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  max-width: 70%;
 }
 
 footer {
