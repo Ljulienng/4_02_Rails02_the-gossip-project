@@ -230,39 +230,44 @@ text-align: center;
   justify-content: space-around;
 }
 
-.btn {
+.btn, .btn-visited {
   font-family: fantasy;
 }
 
-.btn-lg {
+.btn:hover {
+  font-weight: bold !important;
+}
+
+.btn.btn-dark, .btn.btn-dark:visited {
+  color: white !important;
+}
+
+.btn-lg, .btn-lg:visited  {
   font-size: 70px;
   min-width: 70%;
   font-style: italic;
-  border: groove rgba(255, 255, 255, 0.521) 3px;
+  border: groove rgba(255, 255, 255, 0.74) 3px;
   border-radius: 20px;
   background-color: #23A6D5;
+  color: rgba(255, 255, 255, 0.74);
 }
 
 .btn-lg:hover {
   background-color: rgb(35, 127, 213);
-  font-weight: bold;
-  color: white
+  color: white;
 }
 
-.btn-sm {
+.btn-sm, .btn-sm:visited {
   font-size: 23px;
   min-width:20%;
   border: groove black 1px;
   border-radius: 5px;
+  color: white;
 }
 
 .glyphicon-home {
   margin-right: 5px;
   font-size: 25px
-}
-
-a:visited {
-  text-decoration: none;
 }
 
 footer {
