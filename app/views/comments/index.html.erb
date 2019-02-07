@@ -22,13 +22,15 @@
     </div>
   </div>
 
+  <div class = "btns-bottom">
   <div class ="button-box col-lg-12" id="end-box">
     <br />
-    <%= link_to 'New Comment', new_user_gossip_comment_path(params[:user_id],params[:gossip_id]), :class => "btn btn-primary   btn-lg" %>
+    <%= link_to 'New Comment', new_user_gossip_comment_path(params[:user_id],params[:gossip_id]), :class => "btn btn-secondary btn-lg"%>
   </div>
   <div class ="button-box col-lg-12" id="end-box">
     <br />
-    <%= link_to "Back to Gossip", user_gossip_path(params[:user_id],params[:gossip_id]), :class => "btn btn-primary   btn-lg" %>
+    <%= link_to "Back to Gossip", user_gossip_path(params[:user_id],params[:gossip_id]), :class => "btn btn-secondary btn-lg" %>
+  </div>
   </div>
 
 </body>
