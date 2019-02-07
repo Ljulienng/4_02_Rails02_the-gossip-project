@@ -6,6 +6,8 @@ After the git clone, run the commands in this order: `bundle install`,``rails db
 
 Once you've done this your can run the command `rails server` or click [here](https://thegossipprjctdj.herokuapp.com/) to access the online version.
 
+Send a message to the team with the "contact" section if there is any technical problems.
+
 ## Content
 
 In this repo you'll find the gossip project website made on the framework Rails.
