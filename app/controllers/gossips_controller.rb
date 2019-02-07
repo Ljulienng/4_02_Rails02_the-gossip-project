@@ -43,6 +43,13 @@ class GossipsController < ApplicationController
 
   private
 
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Please log in."
+      redirect_to new_session_path
+    end
+  end
+    
   def new_gossip
     params.require(:gossip).permit(:title, :content)
   end

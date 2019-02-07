@@ -2,6 +2,9 @@ class SessionsController < ApplicationController
 
 	def create
 	  # cherche s'il existe un utilisateur en base avec l’e-mail
+	  puts "*" * 60
+	  puts params[:email]
+	  puts "*" * 60
 	  user = User.find_by(email: params[:email])
 
 	  # on vérifie si l'utilisateur existe bien ET si on arrive à l'authentifier (méthode bcrypt) avec le mot de passe 
