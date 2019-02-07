@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :authorized, only: [:edit, :destroy]
 
   def index
     @comments = Comment.all
@@ -44,6 +45,13 @@ class CommentsController < ApplicationController
       unless current_user
         flash[:danger] = "Please log in."
         redirect_to new_session_path
+      end
+    end
+
+    def authorized
+      unless current_user == @comment.author
+      flash[:danger] = "Don't touch other people's sh*t!"
+      redirect_to user_gossip_comment_path(params[:user_id], params[:gossip_id], params[:id])
       end
     end
 

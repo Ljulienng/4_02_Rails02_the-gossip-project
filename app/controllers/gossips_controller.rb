@@ -1,5 +1,6 @@
 class GossipsController < ApplicationController
   before_action :authenticate_user, only: [:create, :new, :destroy, :show, :index]
+  before_action :authorized, only: [:update, :destroy]
 
   def index
     @gossips = Gossip.all
@@ -48,6 +49,13 @@ class GossipsController < ApplicationController
     unless current_user
       flash[:danger] = "Please log in."
       redirect_to new_session_path
+    end
+  end
+
+  def authorized
+    unless current_user == @gossip.author
+    flash[:danger] = "Don't touch other people's sh*t!"
+    redirect_to user_gossip_path(params[:user_id],@gossip.id)
     end
   end
 
