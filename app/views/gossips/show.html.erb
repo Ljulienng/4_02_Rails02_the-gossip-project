@@ -6,13 +6,20 @@
     </div>
 
     <div class="card-body">
+
       Author: <%= link_to "#{@gossip.author.first_name}", user_gossip_author_path(params[:user_id],params[:id],@gossip.author.id) %> 
       <p class="card-text">Content: <%= @gossip.content %></p>
       <% if @gossip.likes.size > 0 %>
         <p class = "card-text"><%= @gossip.likes.size %> 💖</p>
       <% end %>
-      <div><%= button_to '💖 LIKE 💖', user_gossip_likes_path(params[:user_id], @gossip.id), method: :post, class: "btn btn-dark btn-sm" %></div>
-      <br />
+
+      <div class ="button-box col-lg-12" id="edit-stuff">
+        <%= button_to '💖 LIKE 💖', user_gossip_likes_path(params[:user_id], @gossip.id), method: :post, class: "btn btn-dark btn-sm" %>
+        <!-- <% if Like.where("gossip_id = ? AND author_id = ?", @gossip.id, params[:user_id]).size > 0 %>
+          <%= button_to '💔 UNLIKE 💔', user_gossip_likes_path(params[:user_id], @gossip.id, :action => "destroy"), method: :post, class: "btn btn-dark btn-sm" %>
+        <% end %> -->
+      </div>
+    
       <div class ="button-box col-lg-12" id="edit-stuff">
         <% if session[:user_id] == @gossip.author.id %>
           <div><%= link_to "Edit this Gossip", edit_user_gossip_path(params[:user_id],params[:id]), :class => "btn btn-success btn-sm" %></div>
