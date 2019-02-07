@@ -1,0 +1,29 @@
+
+<body style="color:rgb(102, 100, 237)">  
+
+  <div class="card" style= 'text-align: center'>
+      <div class ="card-head">
+      	<p>Login</p>
+      </div>
+      <div class = "card-body" >
+
+        <%= form_tag ( sessions_path, :method => :post ) do %>
+          <div class = "form-group">
+              <label>Email</label>
+              <%= text_field :email, value: User.all.sample.email, :class => 'form-control' %>
+          </div>
+
+          <div class = "form-group">
+              <label>Password</label>
+              <%= text_field :password, class: 'form-control' %>
+          </div>
+
+          <div class = "form-group">
+            <button type = "submit" class = "btn btn-primary btn-sm"> Log In </button>
+         </div>
+
+        <% end %>
+      </div>
+  </div>
+</body>
+
