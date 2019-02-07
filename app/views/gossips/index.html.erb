@@ -1,13 +1,17 @@
-<div class="container h-100 d-flex justify-content-center">
-  <div class="card-columns">
-  <% @gossips.each do |gossip|%>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title"><%=gossip.author.first_name%></h5>
-          <p class="card-text"><%=gossip.title%></p>
-          <%= link_to "See the card", user_gossip_path(params[:user_id],gossip.id), :class => "btn btn-dark" %>
-        </div>
-      </div>
-  <% end %>
+<body>
+
+  <div class="container h-50">
+    <div class="card-columns" style="max-height: 50%">
+      <% @gossips.each do |gossip|%>
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%=gossip.author.first_name%></h5>
+              <p class="card-text"><%=gossip.title%></p>
+              <%= link_to "See the card", user_gossip_path(params[:user_id],gossip.id), :class => "btn btn-dark" %>
+            </div>
+          </div>
+      <% end %>
+    </div>
   </div>
-</div>
+
+</body>

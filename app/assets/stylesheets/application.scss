@@ -82,7 +82,8 @@ html, body {
 
 body {
 width: 100wh;
-height: 90vh;
+max-height: 50%;
+margin-bottom: 20%;
 color: black;
 background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
 background-size: 400% 400%;
@@ -269,6 +270,7 @@ footer {
   bottom:20px;
   text-align: center;
   width: 100%;
+  max-height: 20%;
 }
  /* @import media-breakpoint-only.css
 
