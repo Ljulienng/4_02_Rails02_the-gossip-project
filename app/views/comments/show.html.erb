@@ -3,12 +3,12 @@
     <div class="card">
       <div class="card-header" >
         Comment n°<%= params[:id] %>
-        On Gossip n°<%= params[:gossip_id] %>, <%= Gossip.find(params[:gossip_id]).title %>, written by: <%= Gossip.find(params[:gossip_id]).author.first_name %>
+        On Gossip n°<%= params[:gossip_id] %>, <%= Gossip.find(params[:gossip_id]).title %>, written by <%= Gossip.find(params[:gossip_id]).author.first_name %>
       </div>
   
       <div class="card-body">
-        Written by: <%= link_to "#{@comment.author.first_name}", user_gossip_author_path(params[:user_id],params[:gossip_id],@comment.author.id) %> 
-        <p class="card-text">Content: <%= @comment.content %></p>
+        <%= link_to "#{@comment.author.first_name}", user_gossip_author_path(params[:user_id],params[:gossip_id],@comment.author.id) %> said:
+        <p class="card-text"><%= @comment.content %></p>
         
         <div class ="button-box col-lg-12" id="edit-stuff">
           <div><%= link_to "Edit this Comment", edit_user_gossip_comment_path(params[:user_id],params[:gossip_id],@comment), :class => "btn btn-success btn-sm" %></div>
