@@ -12,7 +12,7 @@
               <% end %>
               <%= link_to "See the card", user_gossip_path(params[:user_id],gossip.id), :class => "btn btn-dark" %>
               <% @current_gossip_id = gossip.id %>
-              <%= button_to '💖 LIKE 💖', user_gossip_likes_path(params[:user_id], gossip.id), method: :post, class: "btn btn-dark" %>
+              <%= button_to '💖 LIKE 💖', user_gossip_likes_path(params[:user_id], gossip.id, :url => "gossip_index"), method: :post, class: "btn btn-dark" %>
             </div>
           </div>
       <% end %>
