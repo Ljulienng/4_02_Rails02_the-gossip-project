@@ -16,8 +16,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(content: params[:content], author: User.find(params[:user_id]), gossip: Gossip.find(params[:gossip_id]))
-    puts params[:content]
+    @comment = Comment.new(author: User.find(params[:user_id]), gossip: Gossip.find(params[:gossip_id]))
+    @comment.content = comment_params.values[0]
     if @comment.save
       redirect_to user_gossip_comments_path(params[:user_id], params[:gossip_id])
     else
@@ -26,11 +26,16 @@ class CommentsController < ApplicationController
   end
 
   def update
-    
+    if @comment.update(comment_params)
+      redirect_to user_gossip_comment_path(params[:user_id], params[:gossip_id], params[:id])
+    else
+      render :edit
+    end
   end
 
   def destroy
     @comment.destroy
+    redirect_to user_gossip_comments_path(params[:user_id], params[:gossip_id]), notice: "The comment has been deleted correctly"
   end
 
   private
