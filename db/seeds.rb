@@ -24,7 +24,7 @@ Like.destroy_all
 end
  
 10.times do
-  User.create!(first_name: Faker::Lebowski.unique.character, email: Faker::Internet.email, age: rand(13..45), description: Faker::Lebowski.unique.quote, city: City.all.sample)
+  User.create!(first_name: Faker::Name.unique.first_name,last_name: Faker::Name.last_name, email: Faker::Internet.email, age: rand(13..45), description: Faker::Lebowski.unique.quote, city: City.all.sample)
 end
 
 20.times do

@@ -37,6 +37,11 @@
         </div>
 
         <div class = "form-group">
+          <label>Email</label>
+          <%= user.text_field :email, value: User.all.sample.email, class: 'form-control' %>
+        </div>
+
+        <div class = "form-group">
           <label>Age</label>
           <%= user.text_field :age, value: User.all.sample.age, class: 'form-control' %>
         </div>
@@ -46,11 +51,7 @@
           <%= user.text_area :description, value: User.all.sample.description, class: 'form-control' %>
         </div>
         <div class = "form-group">
-          <select class="form-control" name="city_id">
-            <% City.all.each do |city| %>
-              <option value=<%= city.id %>><%= city.name %></option>
-            <% end %>
-          </select>
+          
         </div>
 
 
