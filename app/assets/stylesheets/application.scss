@@ -260,7 +260,7 @@ text-align: center;
 
 .btn.btn-secondary.btn-lg, .btn-btn-secondary.btn-lg:visited  {
   font-size: 70px;
-  width: 35%;
+  width: 40%;
   font-style: italic;
   border: groove rgba(255, 255, 255, 0.74) 3px;
   border-radius: 20px;
@@ -287,11 +287,12 @@ text-align: center;
 }
 
 .btns-bottom {
+  display: inline-block;
+  width: 100%;
   text-align: center;
   display: flex;
   flex-flow: row;
-  justify-content: space-around;
-  max-width: 70%;
+  justify-content: space-between;
 }
 
 footer {
