@@ -15,7 +15,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(new_user)
     if @user.save
-      redirect_to user_gossips_path(User.all.sample.id)
+      redirect_to user_gossips_path(@user.id)
+      puts @user
     else
       render "new"
     end
