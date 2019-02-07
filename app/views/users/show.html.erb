@@ -2,7 +2,7 @@
 
   <div class="card text-white bg-dark mb-3">
     <div class="card-header" style="color:brown">
-      <%=@user.first_name%> <%= @user.last_name.upcase%> (<%=@user.age%> years old, lives in <%=@user.city.name%>)
+      <%=@user.first_name%> <%= @user.last_name.upcase%> (<%=@user.age%> years old, lives somewhere around <%=City.all.sample.name%>)
     </div>
 
     <div class="card-body">
