@@ -94,7 +94,7 @@
     </div>
 
     <footer>
-      <% if params[:user_id] != nil && params[:gossip_id] != nil %>
+      <% if params[:user_id] != nil && request.env['PATH_INFO'] != user_gossips_path(params[:user_id]) %>
         <div class ="button-box col-lg-12" style="border: black"><%= link_to "Back to Gossip List", user_gossips_path(params[:user_id]), :class => "btn btn-primary btn-lg" %></p>
       <% end %>
     </footer>
