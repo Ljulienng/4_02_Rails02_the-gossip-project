@@ -256,7 +256,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   bcrypt
+=======
+  bcrypt (~> 3.1.7)
+>>>>>>> 83713d71a5ff4c162275a7aea9380e701d741881
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.2.1)
   bootstrap-sass
