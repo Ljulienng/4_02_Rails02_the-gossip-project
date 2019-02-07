@@ -1,9 +1,35 @@
-<p id="notice"><%= notice %></p>
+<body>
 
-<p>
-  <strong>Content:</strong>
-  <%= @comment.content %>
-</p>
+    <div class="card">
+      <div class="card-header" >
+        Comment n°<%= params[:id] %>
+        On Gossip n°<%= params[:gossip_id] %>, <%= Gossip.find(params[:gossip_id]).title %>, written by: <%= Gossip.find(params[:gossip_id]).author.first_name %>
+      </div>
+  
+      <div class="card-body">
+        Written by: <%= link_to "#{@comment.author.first_name}", user_gossip_author_path(params[:user_id],params[:id],@gossip.author.id) %> 
+        <p class="card-text">Content: <%= @comment.content %></p>
+        
+        <div class ="button-box col-lg-12" id="edit-stuff">
+          <div><%= link_to "Edit this Comment", edit_user_gossip_comment_path(params[:user_id],params[:gossip_id],comment), :class => "btn btn-success btn-sm" %></div>
+          <div><%= link_to "Delete this Comment", user_gossip_comment_path(params[:user_id],params[:gossip_id],comment), method: :delete, data:{ confirm: "Are you sure you want to delete this comment?"}, :class => "btn btn-danger btn-sm"%></div>
+          <div><%= link_to "Comment this Comment", user_gossip_comment_undercomment_index_path(params[:user_id],params[:gossip_id],comment),:class => "btn btn-dark btn-sm"%></div>
+        </div>
+  
+      </div>
+    </div>
+  
+    <br /><br />
+      
+    <div class ="button-box col-lg-12" id="end-box">
+      <br /><br />
+      <br /><br />
+      <%= link_to "Back to Comments", user_gossip_comments_path(params[:user_id],params[:gossip_id]), :class => "btn btn-primary btn-lg" %>
+      <br /><br />
+    </div>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+    <div class ="button-box col-lg-12" id="end-box">
+        <br /><br /><br /><br />
+        <%= link_to "Back to Gossip", user_gossip_path(params[:user_id],params[:gossip_id]), :class => "btn btn-teal   btn-lg" %>
+      </div>
+  </body>

@@ -1,11 +1,15 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Comments</h1>
+<div class="card">
+  <div class="card-header" >
+    Gossip n°<%= params[:gossip_id] %>: <%= Gossip.find(params[:gossip_id]).title %>
+  </div>
+  <div class="card-header" >Comments</div>
+</div>
 
 <table>
   <thead>
     <tr>
-      <th>Content</th>
+      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,22 +24,24 @@
 
 <br>
 
-<div class="container h-100 d-flex justify-content-center">
-  <div class="card-columns">
-    <% @comments.where("gossip_id = ?", params[:gossip_id]).each do |comment|%>
+  <div class="container h-100 d-flex justify-content-center">
+    <div class="card-columns">
+      <% @comments.where("gossip_id = ?", params[:gossip_id]).each do |comment|%>
         <div class="card" style="width: 18rem;">
           <div class="card-body">
-            <h5 class="card-title"><%=comment.author.first_name%></h5>
+            <h5 class="card-title"><%=comment.author.first_name%> says:</h5>
             <p class="card-text"><%=comment.content%></p>
-            <div class ="button-box col-lg-12" id="edit-stuff">
-              <td><%= link_to 'Show', user_gossip_comment_path(params[:user_id],params[:gossip_id],comment) %></td>
-              <td><%= link_to 'Edit', edit_user_gossip_comment_path(params[:user_id],params[:gossip_id],comment) %></td>
-              <td><%= link_to 'Destroy', user_gossip_comment_path(params[:user_id],params[:gossip_id],comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </div>
+            <%= link_to "Interract", user_gossip_comment_path(params[:user_id],params[:gossip_id],comment.id), :class => "btn btn-dark" %>
+          </div>
         </div>
-        </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+
 
 <%= link_to 'New Comment', new_user_gossip_comment_path(params[:user_id],params[:gossip_id]) %>
+
+<div class ="button-box col-lg-12" id="end-box">
+  <br /><br /><br /><br />
+  <%= link_to "Back to Gossip", user_gossip_path(params[:user_id],params[:gossip_id]), :class => "btn btn-teal   btn-lg" %>
+</div>
