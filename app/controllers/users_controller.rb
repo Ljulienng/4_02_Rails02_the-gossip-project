@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(new_user)
+    @user.city_id = params[:city_id]
     if @user.save
       redirect_to '/'
       puts @user
@@ -25,7 +26,11 @@ class UsersController < ApplicationController
   private
 
   def new_user
+<<<<<<< HEAD
     params.require(:user).permit(:first_name, :last_name, :email, :password, :age, :description)
+=======
+    params.require(:user).permit(:first_name, :last_name, :age, :description)
+>>>>>>> e805b4ac61ef844bd828ea220e222d43f283b43c
   end
 
 end

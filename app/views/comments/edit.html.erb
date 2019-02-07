@@ -1,6 +1,41 @@
-<h1>Editing Comment</h1>
+<body>
 
-<%= render 'form', comment: @comment %>
+    <div class="card">
+      <div class="card-header">
+        Comment n°<%= params[:id] %>
+        On Gossip n°<%= params[:gossip_id] %>, <%= Gossip.find(params[:gossip_id]).title %>, written by <%= Gossip.find(params[:gossip_id]).author.first_name %>
+      </div>
+      <div class="card-body">
+        <%= link_to "#{@comment.author.first_name}", user_gossip_author_path(params[:user_id],params[:gossip_id],@comment.author.id) %> said:
+        <p class="card-text"><%= @comment.content %></p>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="card-body">
+        <%= form_for @comment, url: {action: 'update'} do |comment| %>
+  
+          <div class = "form-group">
+            <label>New Content</label>
+            <%= comment.text_area :content, class: 'form-control' %>
+          </div>
+  
+          <div class = "form-group">
+            <button type = "submit" class = "btn btn-dark btn-sm"> Edit Comment </button>
+          </div>
+  
+        <% end %>
+      </div>
+    </div>
 
-<%= link_to 'Show', @comment %> |
-<%= link_to 'Back', comments_path %>
+    <div class ="button-box col-lg-12" id="end-box">
+      <br />
+      <%= link_to "Back to Comment", user_gossip_comment_path(params[:user_id],params[:gossip_id], params[:id]), :class => "btn btn-teal   btn-lg" %>
+    </div>
+    <div class ="button-box col-lg-12" id="end-box">
+      <br />
+      <%= link_to "Back to Comments", user_gossip_comments_path(params[:user_id],params[:gossip_id]), :class => "btn btn-primary btn-lg" %>
+    </div>
+  
+  </body>
+    
