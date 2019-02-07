@@ -6,7 +6,7 @@
           <div class="card" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title" style="white-space: nowrap"><%=gossip.author.first_name%>'s gossip</h5>
-              <p class="card-text"><%=gossip.title%></p>
+              <p class="card-text"style="white-space: nowrap"><%=gossip.title%></p>
               <% if gossip.likes.size > 0 %>
                 <p class = "card-text"><%= gossip.likes.size %> 💖</p>
               <% end %>
