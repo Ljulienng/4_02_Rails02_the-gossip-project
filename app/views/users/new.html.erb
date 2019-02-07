@@ -8,57 +8,55 @@
   <input type='submit'/>
 </form> -->
 
-<html>
-  <body style="text-align: center; color:rgb(102, 100, 237)">  
+<body style="color:rgb(102, 100, 237)">  
 
-    <div class="alert alert-danger" role="alert">
+  <div class="alert alert-danger" role="alert">
 
-      <% if @user.errors.any? %>
-        <p>We could not log you in for the following reasons :</p>
-        <ul>
-          <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+    <% if @user.errors.any? %>
+      <p>We could not log you in for the following reasons :</p>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  
+  <div class="card">
+    <div class="card-body">
+      <%= form_for @user, url: {action: 'create'} do |user| %>
+
+        <div class = "form-group">
+          <label>First Name</label>
+          <%= user.text_field :first_name, value: User.all.sample.first_name, class: 'form-control' %>
+        </div>
+
+        <div class = "form-group">
+          <label>Last Name</label>
+          <%= user.text_field :last_name, value: User.all.sample.last_name, class: 'form-control' %>
+        </div>
+
+        <div class = "form-group">
+          <label>Age</label>
+          <%= user.text_field :age, value: User.all.sample.age, class: 'form-control' %>
+        </div>
+
+        <div class = "form-group">
+          <label>Description</label>
+          <%= user.text_area :description, value: User.all.sample.description, class: 'form-control' %>
+        </div>
+
+        <div class = "form-group">
+          <label>City</label>
+          <%= user.text_field :city_id, value: City.all.sample.id, class: 'form-control' %>
+        </div>
+
+        <div class = "form-group">
+          <button type = "submit" class = "btn btn-primary btn-sm"> Log In </button>
+        </div>
+
       <% end %>
     </div>
-    
-    <div class="card">
-      <div class="card-body">
-        <%= form_for @user, url: {action: 'create'} do |user| %>
-  
-          <div class = "form-group">
-            <label>First Name</label>
-            <%= user.text_field :first_name, value: User.all.sample.first_name, class: 'form-control' %>
-          </div>
-  
-          <div class = "form-group">
-            <label>Last Name</label>
-            <%= user.text_field :last_name, value: User.all.sample.last_name, class: 'form-control' %>
-          </div>
+  </div>
 
-          <div class = "form-group">
-            <label>Age</label>
-            <%= user.text_field :age, value: User.all.sample.age, class: 'form-control' %>
-          </div>
-
-          <div class = "form-group">
-            <label>Description</label>
-            <%= user.text_area :description, value: User.all.sample.description, class: 'form-control' %>
-          </div>
-
-          <div class = "form-group">
-            <label>City</label>
-            <%= user.text_field :city_id, value: City.all.sample.id, class: 'form-control' %>
-          </div>
-  
-          <div class = "form-group">
-            <button type = "submit" class = "btn btn-primary btn-sm"> Log In </button>
-          </div>
-  
-        <% end %>
-      </div>
-    </div>
-
-  </body>
-</html>
+</body>
