@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/contact', to: "static#contact"
   get '/team', to: "static#team"
 
+  
+  resources :sessions, only: [:new, :create, :destroy]
   resources :cities, only: [:index, :show]
   resources :users, only: [:new, :create] do
     resources :gossips do
