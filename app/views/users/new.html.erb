@@ -46,12 +46,12 @@
           <%= user.text_area :description, value: User.all.sample.description, class: 'form-control' %>
         </div>
         <div class = "form-group">
-          <%= form_for cities_path do |f| %>
-            <div class="field">
-              <%= f.label :city %><br />
-              <%= f.collection_select(:city_id, City.all, :id, :name, :include_blank => "Please select a city") %>
-            </div>
-          <% end %>
+          <select class="form-control">
+            <% City.all.each do |city| %>
+              <option value ":city_id>"><%= city.name%></option>
+            <% end %>
+
+          </select>
         </div>
 
 
