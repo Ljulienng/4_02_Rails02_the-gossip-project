@@ -223,18 +223,36 @@ text-align: center;
   color:white;
 }
 
-.btn-sm {
-  font-size: 23px
-}
-
 #edit-stuff {
   display: flex;
   flex-flow: row;
   justify-content: space-around;
 }
 
+.btn {
+  font-family: fantasy;
+}
+
 .btn-lg {
-  font-size: 80px
+  font-size: 70px;
+  min-width: 70%;
+  font-style: italic;
+  border: groove rgba(255, 255, 255, 0.521) 3px;
+  border-radius: 20px;
+  background-color: #23A6D5;
+}
+
+.btn-lg:hover {
+  background-color: rgb(35, 127, 213);
+  font-weight: bold;
+  color: white
+}
+
+.btn-sm {
+  font-size: 23px;
+  min-width:20%;
+  border: groove black 1px;
+  border-radius: 5px;
 }
 
 .glyphicon-home {
