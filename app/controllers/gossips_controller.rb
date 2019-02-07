@@ -41,6 +41,11 @@ class GossipsController < ApplicationController
     redirect_to user_gossips_path(params[:user_id]), notice: "The Gossip #{@gossip.title} has been deleted correctly."
   end
 
+  def like
+    Like.new(gossip: @current_gossip_id, author: params[:user_id])
+    redirect_to user_gossips_path(params[:user_id])
+  end
+
   private
 
   def new_gossip
