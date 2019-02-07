@@ -26,11 +26,8 @@ class UsersController < ApplicationController
   private
 
   def new_user
-<<<<<<< HEAD
     params.require(:user).permit(:first_name, :last_name, :email, :password, :age, :description)
-=======
-    params.require(:user).permit(:first_name, :last_name, :age, :description)
->>>>>>> e805b4ac61ef844bd828ea220e222d43f283b43c
+
   end
 
 end
