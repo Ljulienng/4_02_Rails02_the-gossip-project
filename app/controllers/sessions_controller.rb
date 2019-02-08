@@ -9,7 +9,9 @@ class SessionsController < ApplicationController
 
 	  # on vérifie si l'utilisateur existe bien ET si on arrive à l'authentifier (méthode bcrypt) avec le mot de passe 
 	  if user && user.authenticate(params[:password])
-	    session[:user_id] = user.id
+	    log_in user
+	    params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+	    remember user
 	    redirect_to user_gossips_path(session[:user_id])
 	    # redirige où tu veux, avec un flash ou pas
 
@@ -20,7 +22,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-  	session.delete(:user_id)
+  	log_out if logged_in
   	redirect_to "/"
 	end
 

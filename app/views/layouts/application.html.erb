@@ -38,7 +38,7 @@
                 </li>
               <% end %>
 
-              <li class="nav-item">
+              <li class= "nav-item">
                 <%= link_to "Team", team_path, :class => "nav-link" %>
               </li>
               <li class="nav-item">
@@ -50,7 +50,7 @@
                   <%= link_to "New Gossip", new_user_gossip_path(session[:user_id]), :class => "nav-link" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "Profile", user_path(session[:user_id]), method: "get", :class => "nav-link" %>
+                  <%= link_to "Profile", user_id_path(session[:user_id]), method: "get", :class => "nav-link" %>
                 </li>
                 <li class="nav-item", id='disconnect'>
                   <%= link_to "Disconnect", session_path(session), method: "delete", :class => "nav-link" %>
