@@ -53,9 +53,9 @@ class GossipsController < ApplicationController
   end
 
   def authorized
-    unless current_user == @gossip.author
+    unless current_user == Gossip.find(params[:id]).author
     flash[:danger] = "Don't touch other people's sh*t!"
-    redirect_to user_gossip_path(params[:user_id],@gossip.id)
+    redirect_to user_gossip_path(params[:user_id], params[:id])
     end
   end
 
